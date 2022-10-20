@@ -9,7 +9,7 @@ export default class ListUserService {
 
         try{
             const users = await UserModel.findAll({
-                attributes: { exclude: ['createdAt', 'updatedAt'] }
+                attributes: { exclude: ["createdAt", "updatedAt"] }
             });
     
             return users;
@@ -25,7 +25,7 @@ export default class ListUserService {
             where: {
               id_usuario,
             },
-            attributes: { exclude: ['createdAt', 'updatedAt',] }
+            attributes: { exclude: ["createdAt", "updatedAt",] }
           });
     
           if(user == null) {

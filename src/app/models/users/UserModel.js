@@ -37,4 +37,5 @@ UserModel.init({
 UserModel.hasOne(AdressModel, { foreignKey: "id_usuario", as: "endereços_usuario" });
 
 
+
 export default UserModel;

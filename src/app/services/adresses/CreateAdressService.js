@@ -29,17 +29,22 @@ export default class CreateAdressService {
           
 
             return {
-                Logradouro: `${newAdress.dataValues['logradouro']}`,
-                Número: `${newAdress.dataValues['numero']}`,
-                Cidade: `${newAdress.dataValues['cidade']}`,
-                UF: `${newAdress.dataValues['uf']}`,
-                CEP: `${newAdress.dataValues['cep']}`,
-                Bairro: `${newAdress.dataValues['bairro']}`,
-                Complemento: `${newAdress.dataValues['complemento']}`,
-                Id: `${newAdress.dataValues['id_endereco_usuario']}`
+                Logradouro: `${newAdress.dataValues["logradouro"]}`,
+                Número: `${newAdress.dataValues["numero"]}`,
+                Cidade: `${newAdress.dataValues["cidade"]}`,
+                UF: `${newAdress.dataValues["uf"]}`,
+                CEP: `${newAdress.dataValues["cep"]}`,
+                Bairro: `${newAdress.dataValues["bairro"]}`,
+                Complemento: `${newAdress.dataValues["complemento"]}`,
+                Id: `${newAdress.dataValues["id_endereco_usuario"]}`
             };        
         } catch(errors) {
-            return { erro: errors.message };
+            return {
+                codigo: 400,
+                status: "failed",
+                message: "Ação não realizada, usuário não encontrado ou já contem endereço cadastrado.",  
+                erro: errors
+            };
         }
     }
 }

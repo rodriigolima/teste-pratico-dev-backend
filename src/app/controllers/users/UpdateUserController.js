@@ -22,7 +22,7 @@ export default class UpdateUserController {
 
             return response.json(updateUser);  
         }
-        catch (errors){
+        catch(errors){
             return { erro: errors.mensagem }
         }
     }
