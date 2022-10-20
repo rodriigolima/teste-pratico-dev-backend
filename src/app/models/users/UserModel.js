@@ -28,7 +28,7 @@ UserModel.init({
   modelName: 'usuarios',
 });
 
-UserModel.hasOne(AdressModel, {  as: 'enderecos_usuario' });
-AdressModel.belongsTo(UserModel);
+// UserModel.hasOne(AdressModel, {  as: 'enderecos_usuario' });
+// AdressModel.belongsTo(UserModel);
 
 export default UserModel;

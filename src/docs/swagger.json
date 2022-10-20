@@ -1,0 +1,19 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API teste back end",
+      "description": "Uma documentação para um teste de API backend",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "description": "Localhost",
+        "url": "http://localhost:3000"
+      },
+      {
+        "description": "Production",
+        "url": ""
+      }
+    ]
+  }
+  

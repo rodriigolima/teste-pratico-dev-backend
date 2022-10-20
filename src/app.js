@@ -1,6 +1,7 @@
 import express from "express";
 import db from "./database";
-import routes from "./routes";
+
+import routes from "../src/routes";
 
 class App {
   constructor() {
@@ -23,11 +24,9 @@ class App {
     try {
       await db.authenticate();
       console.log("Database connection successful!!");
-    } catch (error) {
-      console.log(
-        "Could not connect to database: ",
-        error.message
-      );
+    } 
+    catch (error) {
+      console.log("Could not connect to database: ", error.message);
     }
   }
 }
