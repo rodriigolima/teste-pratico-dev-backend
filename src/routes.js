@@ -2,10 +2,14 @@ import Router from "express";
 
 import UsersValidator from "../src/middlewares/UsersValidator";
 
+//import Users Controllers
 import CreateUserController from "../src/app/controllers/users/CreateUserController";
 import ListUserController from "../src/app/controllers/users/ListUserController";
 import UpdateUserController from "./app/controllers/users/UpdateUserController";
 import DeleteUserController from "./app/controllers/users/DeleteUserController";
+
+//import Adresses Controllers
+import CreateAdressController from "./app/controllers/adresses/CreateAdressController";
 
 import swagger from "swagger-ui-express";
 import swaggerJson from "./docs/swagger.json";
@@ -14,6 +18,8 @@ const createUserController = new CreateUserController();
 const listUserController = new ListUserController();
 const updateUserController = new UpdateUserController();
 const deleteUserController = new DeleteUserController();
+
+const createAdressController = new CreateAdressController(); 
 
 const routes = new Router();
 
@@ -41,7 +47,8 @@ routes.get("/enderecos-usuario/:id_usuario");
 
 routes.get("/enderecos-usuario/:id_endereco_usuario");
 
-routes.post("/enderecos-usuario");
+routes.post("/enderecos-usuario", 
+    (request, response) => createAdressController.create(request, response));
 
 routes.put("/enderecos-usuario/:id_endereco_usuario");
 

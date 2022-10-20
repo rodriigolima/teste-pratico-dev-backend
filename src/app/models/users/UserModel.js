@@ -15,8 +15,8 @@ UserModel.init({
   nome: DataTypes.STRING,
   sobrenome: DataTypes.STRING,
   email: DataTypes.STRING,
-  telefone: DataTypes.STRING,
-  cpf: DataTypes.STRING,
+  telefone: DataTypes.STRING(45),
+  cpf: DataTypes.STRING(45),
   createdAt: {
     field: 'created_at',
     allowNull: false,
@@ -34,7 +34,7 @@ UserModel.init({
   timestamps: true,
 });
 
-// UserModel.hasOne(AdressModel, {  as: 'enderecos_usuario' });
-// AdressModel.belongsTo(UserModel);
+UserModel.hasOne(AdressModel, { foreignKey: "id_usuario", as: "endereços_usuario" });
+
 
 export default UserModel;

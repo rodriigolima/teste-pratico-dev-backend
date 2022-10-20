@@ -23,10 +23,10 @@ module.exports = {
         unique: true,
       },
       telefone: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(45),
       },
       cpf: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(45),
         allowNull: false,
         unique: true,
       },
