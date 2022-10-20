@@ -1,6 +1,7 @@
 import express from "express";
 import db from "./database";
 import routes from "./routes";
+
 class App {
   constructor() {
     this.server = express();
@@ -21,10 +22,10 @@ class App {
   async initializeDatabase() {
     try {
       await db.authenticate();
-      console.log("Conexão com o banco de dados realizada com sucesso");
+      console.log("Database connection successful!!");
     } catch (error) {
       console.log(
-        "Não foi possível conectar ao banco de dados: ",
+        "Could not connect to database: ",
         error.message
       );
     }
