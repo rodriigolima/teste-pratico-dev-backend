@@ -26,7 +26,8 @@ class App {
       console.log("Database connection successful!!");
     } 
     catch (error) {
-      console.log("Could not connect to database: ", error.message);
+      console.log("Could not connect to database: ", error.message
+      );
     }
   }
 }

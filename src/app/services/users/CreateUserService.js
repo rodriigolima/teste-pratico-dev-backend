@@ -17,7 +17,7 @@ export default class CreateUserService {
             });
     
             return {  
-                Id :`${newUser.dataValues['id']}`,
+                Id :`${newUser.dataValues['id_usuario']}`,
                 Nome :`${newUser.dataValues['nome']}`,
                 Sobrenome :`${newUser.dataValues['sobrenome']}`,
                 Email :`${newUser.dataValues['email']}`,
@@ -26,7 +26,11 @@ export default class CreateUserService {
             };
         }
         catch(errors) {
-            return { erro: errors};
+            return {
+                codigo: 400,
+                status: "failed",
+                mensagem: "Ação não realizada, email ou cpf duplicado",  
+                erro: errors};
         }  
     }
 }

@@ -7,7 +7,7 @@ export default class CreateUserController {
     }
 
     async create(request, response) {
-        
+         
         const { 
             nome,
             sobrenome,
@@ -24,6 +24,6 @@ export default class CreateUserController {
             cpf
         );
 
-        return response.status(200).json(createdUser);
+        return response.json(createdUser);
     }
 }

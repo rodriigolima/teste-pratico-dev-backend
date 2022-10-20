@@ -7,6 +7,11 @@ const sequelize = new Sequelize(databaseConfig);
 class UserModel extends Model {}
 
 UserModel.init({
+  id_usuario: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement:true
+  },
   nome: DataTypes.STRING,
   sobrenome: DataTypes.STRING,
   email: DataTypes.STRING,
@@ -26,6 +31,7 @@ UserModel.init({
 { 
   sequelize, 
   modelName: 'usuarios',
+  timestamps: true,
 });
 
 // UserModel.hasOne(AdressModel, {  as: 'enderecos_usuario' });
