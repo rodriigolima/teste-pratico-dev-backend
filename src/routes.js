@@ -5,6 +5,7 @@ import UsersValidator from "../src/middlewares/UsersValidator";
 import CreateUserController from "../src/app/controllers/users/CreateUserController";
 import ListUserController from "../src/app/controllers/users/ListUserController";
 import UpdateUserController from "./app/controllers/users/UpdateUserController";
+import DeleteUserController from "./app/controllers/users/DeleteUserController";
 
 import swagger from "swagger-ui-express";
 import swaggerJson from "./docs/swagger.json";
@@ -12,6 +13,7 @@ import swaggerJson from "./docs/swagger.json";
 const createUserController = new CreateUserController();
 const listUserController = new ListUserController();
 const updateUserController = new UpdateUserController();
+const deleteUserController = new DeleteUserController();
 
 const routes = new Router();
 
@@ -28,7 +30,8 @@ routes.get("/usuarios/:id_usuario",
 routes.post("/usuarios", UsersValidator, 
     (request, response) => createUserController.create(request, response));
 
-routes.delete("/usuarios/:id_usuario");
+routes.delete("/usuarios/:id_usuario", 
+    (request, response) => deleteUserController.delete(request, response));
 
 routes.put("/usuarios/:id_usuario", 
     (request, response) => updateUserController.update(request, response));

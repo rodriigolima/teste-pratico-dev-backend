@@ -29,7 +29,7 @@ export default class CreateUserService {
             return {
                 codigo: 400,
                 status: "failed",
-                mensagem: "Ação não realizada, email ou cpf duplicado",  
+                message: "Ação não realizada, email ou cpf duplicado",  
                 erro: errors};
         }  
     }

@@ -15,7 +15,7 @@ export default class UpdateUserController {
             const user = await UserModel.findByPk(id_usuario);
     
             if (!user) {
-                return response.status(404).json({ mensagem: "User not found!"}) ;
+                return response.status(404).json({ message: "User not found!"}) ;
             }
          
             const updateUser = await this.service.update( id_usuario, nome, sobrenome, email, telefone, cpf);

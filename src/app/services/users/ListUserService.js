@@ -32,7 +32,7 @@ export default class ListUserService {
             return {
                 codigo: 400,
                 status: "failed",
-                mensagem: "Id_usuario não encontrado!",  
+                message: "Id_usuario não encontrado!",  
                 };
           }
           
