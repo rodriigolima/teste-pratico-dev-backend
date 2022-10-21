@@ -7,13 +7,13 @@ export default class ListAdressController {
     constructor() {
         this.service = new ListAdressService();
     }
-    
+
     async listAdress(request, response) {
         const { id_endereco_usuario } = request.params;
 
         const adress = await this.service.listByAdress(id_endereco_usuario);
 
-        if(!adress) {
+        if (!adress) {
             return response.status(404).json("User/Adress not found!")
         }
         return response.json(adress);
@@ -24,7 +24,7 @@ export default class ListAdressController {
 
 
         const { id_usuario } = request.params;
-        
+
         const user = await this.service.listByUser(id_usuario);
 
 

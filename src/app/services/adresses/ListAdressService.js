@@ -3,32 +3,32 @@ import AdressModel from "../../models/adresses/AdressModel";
 
 export default class ListAdressService {
 
-    constructor() {}
+    constructor() { }
 
     async listByUser(id_usuario) {
-        try{
+        try {
 
             const userAdress = await UserModel.findByPk(id_usuario, {
                 include: { association: "endereços_usuario" }
             });
 
-            
+
             return userAdress;
-        } 
-        catch(errors) {
+        }
+        catch (errors) {
             return { erro: errors }
         }
     }
 
     async listByAdress(id_endereco_usuario) {
-        try{
+        try {
 
             const adress = await AdressModel.findByPk(id_endereco_usuario);
             return adress;
-        } 
-        catch(errors) {
+        }
+        catch (errors) {
             return { erro: errors }
         }
     }
- 
+
 }

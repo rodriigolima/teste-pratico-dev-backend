@@ -1,7 +1,7 @@
 import ListUserService from "../../services/users/ListUserService";
 
 export default class listUserController {
-    
+
     constructor() {
         this.service = new ListUserService();
     }
@@ -10,7 +10,7 @@ export default class listUserController {
         const { id_usuario } = request.params;
         const { nome } = request.query;
 
-        if(id_usuario) {
+        if (id_usuario) {
             const users = await this.service.listOne(id_usuario);
             return response.json(users);
         }

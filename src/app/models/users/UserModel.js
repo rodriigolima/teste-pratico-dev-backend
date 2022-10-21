@@ -4,13 +4,13 @@ import AdressModel from "../adresses/AdressModel";
 
 const sequelize = new Sequelize(databaseConfig);
 
-class UserModel extends Model {}
+class UserModel extends Model { }
 
 UserModel.init({
   id_usuario: {
     type: Sequelize.INTEGER,
     primaryKey: true,
-    autoIncrement:true
+    autoIncrement: true
   },
   nome: DataTypes.STRING,
   sobrenome: DataTypes.STRING,
@@ -28,11 +28,11 @@ UserModel.init({
     type: Sequelize.DATE
   }
 },
-{ 
-  sequelize, 
-  modelName: 'usuarios',
-  timestamps: true,
-});
+  {
+    sequelize,
+    modelName: 'usuarios',
+    timestamps: true,
+  });
 
 UserModel.hasOne(AdressModel, { foreignKey: "id_usuario", as: "endereços_usuario" });
 

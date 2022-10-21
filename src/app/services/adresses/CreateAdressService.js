@@ -2,7 +2,7 @@ import AdressModel from "../../models/adresses/AdressModel";
 
 export default class CreateAdressService {
 
-    constructor() {}
+    constructor() { }
 
     async create(
         logradouro,
@@ -25,8 +25,8 @@ export default class CreateAdressService {
                 complemento,
                 id_usuario
             });
-            
-          
+
+
 
             return {
                 Logradouro: `${newAdress.dataValues["logradouro"]}`,
@@ -37,12 +37,12 @@ export default class CreateAdressService {
                 Bairro: `${newAdress.dataValues["bairro"]}`,
                 Complemento: `${newAdress.dataValues["complemento"]}`,
                 Id: `${newAdress.dataValues["id_endereco_usuario"]}`
-            };        
-        } catch(errors) {
+            };
+        } catch (errors) {
             return {
                 codigo: 400,
                 status: "failed",
-                message: "Ação não realizada, usuário não encontrado ou já contem endereço cadastrado.",  
+                message: "Ação não realizada, usuário não encontrado ou já contem endereço cadastrado.",
                 erro: errors
             };
         }

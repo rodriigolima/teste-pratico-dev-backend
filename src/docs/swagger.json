@@ -1,19 +1,578 @@
 {
-    "openapi": "3.0.0",
-    "info": {
-      "title": "API teste back end",
-      "description": "Uma documentação para um teste de API backend",
-      "version": "1.0.0"
-    },
-    "servers": [
-      {
-        "description": "Localhost",
-        "url": "http://localhost:3000"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "teste pratico",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/usuarios": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "create user",
+        "operationId": "createuser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/createuserrequest"
+                  },
+                  {
+                    "example": {
+                      "nome": "Exemple",
+                      "sobrenome": "Name",
+                      "email": "exemplename@email.com",
+                      "telefone": "+55 (81) 9 9240-6566",
+                      "cpf": "021.029.234-23"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "nome": "Exemple",
+                "sobrenome": "Name",
+                "email": "exemplename@email.com",
+                "telefone": "+55 (81) 9 9240-6566",
+                "cpf": "021.029.234-23"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
       },
-      {
-        "description": "Production",
-        "url": ""
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "list all users",
+        "operationId": "listallusers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
       }
-    ]
-  }
-  
+    },
+    "/usuarios/{id_usuario}": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "list one user by id",
+        "operationId": "listoneuserbyid",
+        "parameters": [
+          {
+            "name": "id_usuario",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "null"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "update user",
+        "operationId": "updateuser",
+        "parameters": [
+          {
+            "name": "id_usuario",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "null"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/updateuserrequest"
+                  },
+                  {
+                    "example": {
+                      "nome": "Exemplo",
+                      "sobrenome": "Name2",
+                      "email": "exemplename2@email.com",
+                      "telefone": "+55 (81) 9 9210-4566",
+                      "cpf": "048.069.234-13"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "nome": "Exemplo",
+                "sobrenome": "Name2",
+                "email": "exemplename2@email.com",
+                "telefone": "+55 (81) 9 9210-4566",
+                "cpf": "048.069.234-13"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "users"
+        ],
+        "summary": "delete an user",
+        "operationId": "deleteanuser",
+        "parameters": [
+          {
+            "name": "id_usuario",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "null"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/enderecos-usuario": {
+      "post": {
+        "tags": [
+          "adresses"
+        ],
+        "summary": "create adress",
+        "operationId": "createadress",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/createadressrequest"
+                  },
+                  {
+                    "example": {
+                      "id_usuario": 3,
+                      "logradouro": "Rua das Moças",
+                      "numero": "19",
+                      "cidade": "Recife",
+                      "uf": "PE",
+                      "cep": "52121-445",
+                      "bairro": "Campina do Barreto",
+                      "complemento": "Casa 1"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "id_usuario": 3,
+                "logradouro": "Rua das Moças",
+                "numero": "19",
+                "cidade": "Recife",
+                "uf": "PE",
+                "cep": "52121-445",
+                "bairro": "Campina do Barreto",
+                "complemento": "Casa 1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/enderecos-usuario/{id_endereco_usuario}": {
+      "put": {
+        "tags": [
+          "adresses"
+        ],
+        "summary": "update adress",
+        "operationId": "updateadress",
+        "parameters": [
+          {
+            "name": "id_endereco_usuario",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 5
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/updateadressrequest"
+                  },
+                  {
+                    "example": {
+                      "logradouro": "Rua das Graças",
+                      "numero": "134",
+                      "cidade": "Recife",
+                      "uf": "PE",
+                      "cep": "52321-445",
+                      "bairro": "Graças",
+                      "complemento": "Casa 2"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "logradouro": "Rua das Graças",
+                "numero": "134",
+                "cidade": "Recife",
+                "uf": "PE",
+                "cep": "52321-445",
+                "bairro": "Graças",
+                "complemento": "Casa 2"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "adresses"
+        ],
+        "summary": "delete adress",
+        "operationId": "deleteadress",
+        "parameters": [
+          {
+            "name": "id_endereco_usuario",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 5
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/enderecos-usuario/{id_usuario}": {
+      "get": {
+        "tags": [
+          "adresses"
+        ],
+        "summary": "list adress user",
+        "operationId": "listadressuser",
+        "parameters": [
+          {
+            "name": "id_usuario",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/enderecos-usuario/{id_enderecos_usuario}": {
+      "get": {
+        "tags": [
+          "adresses"
+        ],
+        "summary": "list adress by id",
+        "operationId": "listadressbyid",
+        "parameters": [
+          {
+            "name": "id_enderecos_usuario",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "createuserrequest": {
+        "title": "createuserrequest",
+        "required": [
+          "nome",
+          "sobrenome",
+          "email",
+          "telefone",
+          "cpf"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "sobrenome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "telefone": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "nome": "Exemple",
+          "sobrenome": "Name",
+          "email": "exemplename@email.com",
+          "telefone": "+55 (81) 9 9240-6566",
+          "cpf": "021.029.234-23"
+        }
+      },
+      "updateuserrequest": {
+        "title": "updateuserrequest",
+        "required": [
+          "nome",
+          "sobrenome",
+          "email",
+          "telefone",
+          "cpf"
+        ],
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "sobrenome": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "telefone": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "nome": "Exemplo",
+          "sobrenome": "Name2",
+          "email": "exemplename2@email.com",
+          "telefone": "+55 (81) 9 9210-4566",
+          "cpf": "048.069.234-13"
+        }
+      },
+      "createadressrequest": {
+        "title": "createadressrequest",
+        "required": [
+          "id_usuario",
+          "logradouro",
+          "numero",
+          "cidade",
+          "uf",
+          "cep",
+          "bairro",
+          "complemento"
+        ],
+        "type": "object",
+        "properties": {
+          "id_usuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "logradouro": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "string"
+          },
+          "cidade": {
+            "type": "string"
+          },
+          "uf": {
+            "type": "string"
+          },
+          "cep": {
+            "type": "string"
+          },
+          "bairro": {
+            "type": "string"
+          },
+          "complemento": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id_usuario": 3,
+          "logradouro": "Rua das Moças",
+          "numero": "19",
+          "cidade": "Recife",
+          "uf": "PE",
+          "cep": "52121-445",
+          "bairro": "Campina do Barreto",
+          "complemento": "Casa 1"
+        }
+      },
+      "updateadressrequest": {
+        "title": "updateadressrequest",
+        "required": [
+          "logradouro",
+          "numero",
+          "cidade",
+          "uf",
+          "cep",
+          "bairro",
+          "complemento"
+        ],
+        "type": "object",
+        "properties": {
+          "logradouro": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "string"
+          },
+          "cidade": {
+            "type": "string"
+          },
+          "uf": {
+            "type": "string"
+          },
+          "cep": {
+            "type": "string"
+          },
+          "bairro": {
+            "type": "string"
+          },
+          "complemento": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "logradouro": "Rua das Graças",
+          "numero": "134",
+          "cidade": "Recife",
+          "uf": "PE",
+          "cep": "52321-445",
+          "bairro": "Graças",
+          "complemento": "Casa 2"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "users"
+    },
+    {
+      "name": "adresses"
+    }
+  ]
+}

@@ -7,8 +7,8 @@ export default class CreateUserController {
     }
 
     async create(request, response) {
-         
-        const { 
+
+        const {
             nome,
             sobrenome,
             email,

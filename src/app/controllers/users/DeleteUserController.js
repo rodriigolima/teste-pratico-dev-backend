@@ -11,8 +11,8 @@ export default class DeleteUserController {
         const { id_usuario } = request.params;
 
         const user = await UserModel.findByPk(id_usuario);
-  
-        if(!user) {
+
+        if (!user) {
             return response.status(400).json({ message: "User not found!" });
         }
 

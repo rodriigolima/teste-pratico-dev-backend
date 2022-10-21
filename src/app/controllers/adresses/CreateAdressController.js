@@ -19,7 +19,7 @@ export default class CreateAdressController {
             id_usuario
         } = request.body;
 
-    
+
         const createdAdress = await this.service.create(
             logradouro,
             numero,
