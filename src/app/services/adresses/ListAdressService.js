@@ -12,8 +12,8 @@ export default class ListAdressService {
                 include: { association: "endereços_usuario" }
             });
 
-
             return userAdress;
+
         }
         catch (errors) {
             return { erro: errors }
@@ -24,6 +24,7 @@ export default class ListAdressService {
         try {
 
             const adress = await AdressModel.findByPk(id_endereco_usuario);
+
             return adress;
         }
         catch (errors) {

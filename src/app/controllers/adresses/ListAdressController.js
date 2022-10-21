@@ -21,19 +21,20 @@ export default class ListAdressController {
 
     async listUser(request, response) {
 
-
-
         const { id_usuario } = request.params;
+
 
         const user = await this.service.listByUser(id_usuario);
 
-
         if (!user) {
-            return response.status(404).json("User/Adress not found!")
+
+            return response.status(404).json({
+                codigo: 404,
+                status: "failed",
+                message: "User / Adress not found!"
+            });
         }
 
         return response.json(user);
     }
-
-
 }

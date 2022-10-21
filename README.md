@@ -75,7 +75,7 @@ src\
 
 Lista de routes disponíveis:
 
-
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/23053694-eea65ce3-b4fc-4032-9dd7-744e0c9b3a47?action=collection%2Ffork&collection-url=entityId%3D23053694-eea65ce3-b4fc-4032-9dd7-744e0c9b3a47%26entityType%3Dcollection%26workspaceId%3D4c55b847-db93-4bea-9d52-45f68d64573f)
 
 
 Todas as rotas você pode importar para o insomnia ou postman para testá-la!
